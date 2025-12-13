@@ -1,0 +1,2106 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Newtown Diamond Đà Nẵng - Dự Án Cao Cấp</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <!-- Lightbox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" />
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #d4af37;
+            --secondary-color: #0a2540;
+            --accent-color: #1a365d;
+            --light-bg: #f8f9fa;
+            --dark-bg: #121212;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        .navbar-brand {
+            font-family: "Playfair Display", serif;
+            font-weight: 600;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background: rgba(10, 37, 64, 0.95) !important;
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand img {
+            height: 60px;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+
+        /* Hero Section - ĐÃ SỬA */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(0, 23, 45, 0.85), rgba(0, 23, 45, 0.7)),
+                url('./img/phoi-canh.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 30% 20%, rgba(255, 215, 0, 0.15) 0%, transparent 30%),
+                radial-gradient(circle at 70% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 40%);
+            animation: shimmer 15s ease-in-out infinite alternate;
+        }
+
+        /* Animation for main title - ĐÃ SỬA */
+        .hero-title {
+            font-size: 3.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: goldRise 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+            animation-delay: 0.3s;
+        }
+
+        /* Luxury gold text effect - ĐÃ SỬA */
+        .gold-text {
+            background: linear-gradient(135deg,
+                    #e9d772 0%,
+                    #dbbe18 25%,
+                    #e4c219 50%,
+                    #FFD700 75%,
+                    #a8910d 100%);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow:
+                0 0 20px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(255, 215, 0, 0.2);
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Shimmer effect for gold text */
+        .gold-text::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        /* Staggered layout for subtitle - ĐÃ SỬA */
+        .staggered-subtitle {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .staggered-subtitle h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            opacity: 1;
+            /* ĐÃ SỬA: Thay đổi từ 0 thành 1 */
+            position: relative;
+            padding: 0.8rem 3rem;
+            overflow: visible;
+        }
+
+        .staggered-subtitle h1:nth-child(1) {
+            align-self: flex-start;
+            animation: slideInLeft 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+            animation-delay: 1.2s;
+            border-left: 3px solid #FFD700;
+            transform: translateX(0);
+            /* ĐÃ SỬA: Thêm transform ban đầu */
+        }
+
+        .staggered-subtitle h1:nth-child(2) {
+            align-self: flex-end;
+            animation: slideInRight 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+            animation-delay: 2.8s;
+            border-right: 3px solid #FFD700;
+            text-align: right;
+            transform: translateX(0);
+            /* ĐÃ SỬA: Thêm transform ban đầu */
+        }
+
+        /* Button styling */
+        .btn-primary-custom {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            border: none;
+            color: #000;
+            font-weight: 600;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInUp 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+            animation-delay: 4.5s;
+            box-shadow:
+                0 5px 15px rgba(255, 215, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow:
+                0 15px 30px rgba(255, 215, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            color: #000;
+        }
+
+        .btn-primary-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.4),
+                    transparent);
+            transition: left 0.7s ease;
+        }
+
+        .btn-primary-custom:hover::before {
+            left: 100%;
+        }
+
+        /* Floating particles effect */
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #FFD700;
+            border-radius: 50%;
+            animation: floatParticle 20s linear infinite;
+            opacity: 0.3;
+        }
+
+        /* Animations - ĐÃ SỬA */
+        @keyframes goldRise {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+
+            60% {
+                opacity: 1;
+                transform: translateY(-10px) scale(1.02);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+
+            60% {
+                opacity: 1;
+                transform: translateX(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+
+            60% {
+                opacity: 1;
+                transform: translateX(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes shimmer {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes shimmerGold {
+            0% {
+                left: -100%;
+            }
+
+            50%,
+            100% {
+                left: 100%;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.3;
+            }
+
+            90% {
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes letterFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .letter {
+            opacity: 1 !important;
+            animation: none !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .staggered-subtitle h1 {
+                font-size: 2.2rem;
+                padding: 0.6rem 2rem;
+                opacity: 1 !important;
+                visibility: visible !important;
+                animation: none !important;
+            }
+
+            .staggered-subtitle strong {
+                opacity: 1 !important;
+                visibility: visible !important;
+                animation: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .staggered-subtitle h1 {
+                font-size: 1.8rem;
+                padding: 0.5rem 1.5rem;
+            }
+
+            .staggered-subtitle {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .staggered-subtitle h1 {
+                font-size: 1.5rem;
+                padding: 0.4rem 1rem;
+            }
+
+            .btn-primary-custom {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .staggered-subtitle {
+                gap: 0.8rem;
+            }
+        }
+
+        /* Section Styling */
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        .section-title.text-center:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+
+        /* Content Box */
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-box:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary-color);
+        }
+
+        /* Gallery */
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Amenities */
+        .amenity-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        /* Pricing Cards */
+        .pricing-card {
+            border: 2px solid #eee;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15);
+        }
+
+        .pricing-header {
+            background: var(--secondary-color);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Custom Utilities */
+        .bg-light-custom {
+            background-color: #f8f9fa;
+        }
+
+        .text-primary-custom {
+            color: var(--primary-color) !important;
+        }
+
+        .bg-primary-custom {
+            background-color: var(--primary-color) !important;
+        }
+
+        .border-primary-custom {
+            border-color: var(--primary-color) !important;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Video Section */
+        .video-section {
+            background: linear-gradient(rgba(10, 37, 64, 0.9), rgba(10, 37, 64, 0.9));
+            padding: 4rem 0;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Loading optimization */
+        .lazy-load {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lazy-load.loaded {
+            opacity: 1;
+        }
+
+        /* Image optimization */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://newtowndiamonds.com/wp-content/uploads/2024/07/logo.jpg" alt="Newtown Diamond"
+                    loading="lazy" />
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#location">Vị trí</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#amenities">Tiện ích</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#floorplans">Mặt bằng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Bảng giá</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#news">Tin tức</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <!-- Floating particles -->
+        <div class="floating-particles" id="particles"></div>
+
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-10 col-xl-8 mx-auto text-center text-white">
+                    <!-- Main title - one line with luxury gold effect -->
+                    <h1 class="hero-title gold-text mb-5">Newtown Diamond Đà Nẵng</h1>
+
+                    <!-- Staggered subtitle with luxury gold text -->
+                    <div class="staggered-subtitle mb-5">
+                        <h1 class="gold-text">
+                            <strong id="line1">Kim Cương Từ Vị Trí</strong>
+                        </h1>
+                        <h1 class="gold-text">
+                            <strong id="line2">Phú Quý Ở Tầm Nhìn</strong>
+                        </h1>
+                    </div>
+                    <a href="#location" class="btn btn-primary-custom btn-lg">Khám phá dự án</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Video Introduction Section -->
+    <section class="video-section">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title text-white">Video Giới Thiệu Dự Án</h2>
+                    <p class="text-white-50">Khám phá vẻ đẹp và tiềm năng của Newtown Diamond Đà Nẵng qua video giới
+                        thiệu</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="video-container" data-aos="fade-up">
+                        <iframe src="https://www.youtube.com/embed/hNjdtWAMOXs"
+                            title="Newtown Diamond Đà Nẵng - Dự án căn hộ cao cấp" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Project Overview -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h2 class="section-title">Tổng Quan Dự Án</h2>
+                        <p class="text-muted">
+                            Newtown Diamond Đà Nẵng là dự án tổ hợp căn hộ cao cấp mặt tiền
+                            biển sở hữu lâu dài tọa lạc tại đường Trường Sa, phường Hòa Hải,
+                            quận Ngũ Hành Sơn, TP Đà Nẵng.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="content-box" data-aos="fade-up">
+                            <h3 class="mb-3">Thông Tin Chi Tiết</h3>
+                            <img src="img/tm-bg-1.jpg" alt="Phối cảnh dự án" class="img-fluid rounded mb-3"
+                                loading="lazy" />
+                            <p>
+                                Là dự án tổ hợp căn hộ cao cấp mặt tiền biển sở hữu lâu dài
+                                thể hiện đẳng cấp và tầm nhìn của chủ sở hữu.
+                            </p>
+
+                            <img src="img/tong-quan.jpg" alt="Tổng quan dự án" class="img-fluid rounded mb-3"
+                                loading="lazy" />
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th class="bg-light">Tên dự án</th>
+                                            <td>Newtown Diamond Đà Nẵng</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Vị trí</th>
+                                            <td>
+                                                Đường Trường Sa, Phường Hòa Hải, Quận Ngũ Hành Sơn, TP
+                                                Đà Nẵng
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Chủ đầu tư</th>
+                                            <td>Công ty TNHH Newtown</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Đơn vị thi công</th>
+                                            <td>Coteccons</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Diện tích tổng thể</th>
+                                            <td>1.47 ha</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Quy mô</th>
+                                            <td>3 tòa tháp cao 36 tầng nổi và 3 tầng hầm</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Số lượng căn hộ</th>
+                                            <td>1.733 căn hộ cao cấp</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Pháp lý</th>
+                                            <td>Sở hữu lâu dài</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Dự kiến hoàn thành</th>
+                                            <td>Quý I/2026</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p>
+                                Newtown Diamond là biểu tượng kiến trúc mới của trục đại lộ
+                                kim cương tại tâm điểm Đà Nẵng với sức sống trẻ trung hiện
+                                đại, mang trong mình vẻ đẹp lộng lẫy, sang trọng.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="content-box" data-aos="fade-up" data-aos-delay="100">
+                            <h3 class="mb-3">Mặt Bằng Dự Án</h3>
+                            <p class="mb-3">
+                                Mặt bằng tầng điển hình dự án căn hộ Newtown Diamond Đà Nẵng
+                                tòa The Diamond
+                            </p>
+                            <a href="img/mbdh-t-dm.jpg" data-lightbox="floorplans" data-title="Mặt bằng The Diamond">
+                                <img src="img/mbdh-t-dm.jpg" alt="Mặt bằng The Diamond" class="img-fluid rounded mb-3"
+                                    loading="lazy" />
+                            </a>
+
+                            <p class="mb-3">
+                                Mặt bằng tầng điển hình dự án căn hộ Newtown Diamond Đà Nẵng
+                                tòa The Ruby
+                            </p>
+                            <a href="img/mbdh-t-rb.jpg" data-lightbox="floorplans" data-title="Mặt bằng The Ruby">
+                                <img src="img/mbdh-t-rb.jpg" alt="Mặt bằng The Ruby" class="img-fluid rounded mb-3"
+                                    loading="lazy" />
+                            </a>
+
+                            <p class="mb-3">
+                                Mặt bằng tầng điển hình dự án căn hộ Newtown Diamond Đà Nẵng
+                                tòa The Sapphire
+                            </p>
+                            <a href="img/mbdh-t-sp.jpg" data-lightbox="floorplans" data-title="Mặt bằng The Sapphire">
+                                <img src="img/mbdh-t-sp.jpg" alt="Mặt bằng The Sapphire" class="img-fluid rounded mb-3"
+                                    loading="lazy" />
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="content-box" data-aos="fade-up" data-aos-delay="200">
+                            <h3 class="mb-3">Chính Sách Bán Hàng</h3>
+                            <p class="mb-3">
+                                Mặt bằng tầng điển hình dự án căn hộ Newtown Diamond Đà Nẵng
+                                tòa The Diamond
+                            </p>
+                            <a href="img/mbdh-t-dm.jpg" data-lightbox="floorplans" data-title="Mặt bằng The Diamond">
+                                <img src="img/mbdh-t-dm.jpg" alt="Mặt bằng The Diamond" class="img-fluid rounded mb-3"
+                                    loading="lazy" />
+                            </a>
+
+                            <p class="mb-3">
+                                Mặt bằng tầng điển hình dự án căn hộ Newtown Diamond Đà Nẵng
+                                tòa The Ruby
+                            </p>
+                            <a href="img/mbdh-t-rb.jpg" data-lightbox="floorplans" data-title="Mặt bằng The Ruby">
+                                <img src="img/mbdh-t-rb.jpg" alt="Mặt bằng The Ruby" class="img-fluid rounded mb-3"
+                                    loading="lazy" />
+                            </a>
+
+                            <p class="mb-3">
+                                Mặt bằng tầng điển hình dự án căn hộ Newtown Diamond Đà Nẵng
+                                tòa The Sapphire
+                            </p>
+                            <a href="img/mbdh-t-sp.jpg" data-lightbox="floorplans" data-title="Mặt bằng The Sapphire">
+                                <img src="img/mbdh-t-sp.jpg" alt="Mặt bằng The Sapphire" class="img-fluid rounded mb-3"
+                                    loading="lazy" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section id="location" class="py-5 bg-light-custom">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h2 class="section-title">Vị Trí Đắc Địa</h2>
+                        <p class="text-muted">
+                            Tọa lạc tại trục đường Trường Sa - đường Nam Kỳ Khởi Nghĩa, kề
+                            sông cận biển, trong quần thể nghỉ dưỡng sân golf 36 hố Da Nang
+                            Beach Resort
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="content-box" data-aos="fade-right">
+                            <h3 class="mb-4">Vị Trí Chiến Lược</h3>
+                            <div class="mb-4">
+                                <div class="ratio ratio-16x9">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3835.738713751176!2d108.271972!3d15.982978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219bcaed1e10f%3A0x361eebb57c532fd8!2sNewtown%20Diamond%20Da%20Nang!5e0!3m2!1svi!2s!4v1690000000000!5m2!1svi!2s"
+                                        style="border:0;" allowfullscreen="" loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade" class="rounded">
+                                    </iframe>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <i class="fas fa-map-marker-alt text-primary-custom fs-4 me-3 mt-1"></i>
+                                        <div>
+                                            <h5>Địa chỉ</h5>
+                                            <p class="mb-0">
+                                                Đường Trường Sa, Phường Hòa Hải, Quận Ngũ Hành Sơn, TP
+                                                Đà Nẵng
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <i class="fas fa-compass text-primary-custom fs-4 me-3 mt-1"></i>
+                                        <div>
+                                            <h5>Hướng nhìn</h5>
+                                            <p class="mb-0">View biển, view sông, view thành phố</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <i class="fas fa-golf-ball text-primary-custom fs-4 me-3 mt-1"></i>
+                                        <div>
+                                            <h5>Tiện ích lân cận</h5>
+                                            <p class="mb-0">Sân golf 36 hố Da Nang Beach Resort</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <i class="fas fa-umbrella-beach text-primary-custom fs-4 me-3 mt-1"></i>
+                                        <div>
+                                            <h5>Khoảng cách đến biển</h5>
+                                            <p class="mb-0">Chỉ 5 phút đi bộ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="content-box" data-aos="fade-left">
+                            <h3 class="mb-4">Lợi Thế Vị Trí</h3>
+                            <div class="mb-4">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="card border-0 shadow-sm h-100">
+                                            <div class="card-body text-center">
+                                                <i class="fas fa-city text-primary-custom fs-1 mb-3"></i>
+                                                <h5>Trung tâm thành phố</h5>
+                                                <p class="mb-0">10 phút đến trung tâm Đà Nẵng</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card border-0 shadow-sm h-100">
+                                            <div class="card-body text-center">
+                                                <i class="fas fa-plane text-primary-custom fs-1 mb-3"></i>
+                                                <h5>Sân bay quốc tế</h5>
+                                                <p class="mb-0">15 phút đến sân bay Đà Nẵng</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card border-0 shadow-sm h-100">
+                                            <div class="card-body text-center">
+                                                <i class="fas fa-train text-primary-custom fs-1 mb-3"></i>
+                                                <h5>Ga đường sắt</h5>
+                                                <p class="mb-0">12 phút đến ga Đà Nẵng</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card border-0 shadow-sm h-100">
+                                            <div class="card-body text-center">
+                                                <i class="fas fa-shopping-bag text-primary-custom fs-1 mb-3"></i>
+                                                <h5>Trung tâm thương mại</h5>
+                                                <p class="mb-0">5 phút đến Vincom, Lotte Mart</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h5 class="mb-3">Kết nối giao thông thuận lợi</h5>
+                            <ul class="list-group list-group-flush mb-4">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>Đến phố cổ Hội An</span>
+                                    <span class="badge bg-primary-custom rounded-pill">25 phút</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>Đến Bà Nà Hills</span>
+                                    <span class="badge bg-primary-custom rounded-pill">40 phút</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>Đến Ngũ Hành Sơn</span>
+                                    <span class="badge bg-primary-custom rounded-pill">8 phút</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>Đến chợ Hàn</span>
+                                    <span class="badge bg-primary-custom rounded-pill">12 phút</span>
+                                </li>
+                            </ul>
+
+                            <div class="alert alert-primary border-primary-custom bg-transparent" role="alert">
+                                <h5>
+                                    <i class="fas fa-lightbulb me-2"></i> Đầu tư thông minh
+                                </h5>
+                                <p class="mb-0">
+                                    Vị trí đắc địa "kề sông cận biển" giúp Newtown Diamond Đà
+                                    Nẵng có tiềm năng tăng giá vượt trội và cơ hội sinh lời cao
+                                    cho nhà đầu tư.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Amenities Section -->
+        <section id="amenities" class="py-5">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h2 class="section-title">Tiện Ích Đẳng Cấp</h2>
+                        <p class="text-muted">
+                            Hệ thống tiện ích 5 sao đồng bộ, đáp ứng mọi nhu cầu sống, làm
+                            việc, giải trí và chăm sóc sức khỏe cho cư dân
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Row 1 -->
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow-sm h-100" data-aos="zoom-in">
+                            <div class="card-body text-center p-4">
+                                <div class="amenity-icon mb-3">
+                                    <i class="fas fa-swimming-pool"></i>
+                                </div>
+                                <h5 class="card-title">Hồ bơi vô cực</h5>
+                                <p class="card-text">
+                                    Hồ bơi vô cực view biển trên tầng cao, khu vực bể bơi trẻ em
+                                    riêng biệt
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow-sm h-100" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="card-body text-center p-4">
+                                <div class="amenity-icon mb-3">
+                                    <i class="fas fa-dumbbell"></i>
+                                </div>
+                                <h5 class="card-title">Phòng gym đẳng cấp</h5>
+                                <p class="card-text">
+                                    Phòng tập gym hiện đại với đầy đủ thiết bị, phòng yoga,
+                                    pilates
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow-sm h-100" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="card-body text-center p-4">
+                                <div class="amenity-icon mb-3">
+                                    <i class="fas fa-tree"></i>
+                                </div>
+                                <h5 class="card-title">Công viên cây xanh</h5>
+                                <p class="card-text">
+                                    Hệ thống công viên, vườn hoa, khu vui chơi trẻ em rộng hàng
+                                    nghìn m2
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow-sm h-100" data-aos="zoom-in" data-aos-delay="0">
+                            <div class="card-body text-center p-4">
+                                <div class="amenity-icon mb-3">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h5 class="card-title">An ninh 24/7</h5>
+                                <p class="card-text">
+                                    Hệ thống an ninh 3 lớp với camera, thẻ từ, bảo vệ tuần tra
+                                    24/7
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow-sm h-100" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="card-body text-center p-4">
+                                <div class="amenity-icon mb-3">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <h5 class="card-title">Nhà hàng & Cafe</h5>
+                                <p class="card-text">
+                                    Nhà hàng 5 sao, quán cafe view biển, sky bar trên tầng
+                                    thượng
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow-sm h-100" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="card-body text-center p-4">
+                                <div class="amenity-icon mb-3">
+                                    <i class="fas fa-basketball-ball"></i>
+                                </div>
+                                <h5 class="card-title">Sân thể thao</h5>
+                                <p class="card-text">
+                                    Sân tennis, bóng rổ, bóng chuyền, khu BBQ ngoài trời
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow-sm h-100" data-aos="zoom-in" data-aos-delay="0">
+                            <div class="card-body text-center p-4">
+                                <div class="amenity-icon mb-3">
+                                    <i class="fas fa-spa"></i>
+                                </div>
+                                <h5 class="card-title">Spa & Wellness</h5>
+                                <p class="card-text">
+                                    Trung tâm chăm sóc sức khỏe, spa, massage đạt chuẩn 5 sao
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow-sm h-100" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="card-body text-center p-4">
+                                <div class="amenity-icon mb-3">
+                                    <i class="fas fa-concierge-bell"></i>
+                                </div>
+                                <h5 class="card-title">Dịch vụ tiện ích</h5>
+                                <p class="card-text">
+                                    Dịch vụ dọn phòng, giặt ủi, đưa đón sân bay, đặt tour du
+                                    lịch
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow-sm h-100" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="card-body text-center p-4">
+                                <div class="amenity-icon mb-3">
+                                    <i class="fas fa-child"></i>
+                                </div>
+                                <h5 class="card-title">Khu vui chơi trẻ em</h5>
+                                <p class="card-text">
+                                    Khu vui chơi trong nhà và ngoài trời an toàn, sáng tạo cho
+                                    trẻ em
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Floor Plans Section -->
+        <section id="floorplans" class="py-5 bg-light-custom">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h2 class="section-title">Mặt Bằng Thiết Kế</h2>
+                        <p class="text-muted">
+                            Thiết kế thông minh, tối ưu không gian, đa dạng loại hình căn hộ
+                            đáp ứng mọi nhu cầu của cư dân
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- The Diamond -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card border-0 shadow-sm h-100" data-aos="fade-up">
+                            <a href="img/mbdh-t-dm.jpg" data-lightbox="floorplans"
+                                data-title="Mặt bằng tòa The Diamond">
+                                <img src="img/mbdh-t-dm.jpg" class="card-img-top" alt="The Diamond" loading="lazy" />
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title">Tòa The Diamond</h5>
+                                <p class="card-text">
+                                    Mặt bằng tầng điển hình với thiết kế tối ưu án sáng và tầm
+                                    nhìn
+                                </p>
+
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Diện tích:</strong></td>
+                                                <td class="text-end">50m² - 90m²</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Phòng ngủ:</strong></td>
+                                                <td class="text-end">1 - 3 phòng</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>View chính:</strong></td>
+                                                <td class="text-end">Biển & thành phố</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Hướng:</strong></td>
+                                                <td class="text-end">Đông & Tây</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-primary-custom">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- The Ruby -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card border-0 shadow-sm h-100" data-aos="fade-up" data-aos-delay="100">
+                            <a href="img/mbdh-t-rb.jpg" data-lightbox="floorplans" data-title="Mặt bằng tòa The Ruby">
+                                <img src="img/mbdh-t-rb.jpg" class="card-img-top" alt="The Ruby" loading="lazy" />
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title">Tòa The Ruby</h5>
+                                <p class="card-text">
+                                    Thiết kế căn hộ thông minh với không gian mở và ban công
+                                    rộng
+                                </p>
+
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Diện tích:</strong></td>
+                                                <td class="text-end">55m² - 95m²</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Phòng ngủ:</strong></td>
+                                                <td class="text-end">2 - 3 phòng</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>View chính:</strong></td>
+                                                <td class="text-end">Sông & biển</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Hướng:</strong></td>
+                                                <td class="text-end">Nam & Bắc</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-primary-custom">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- The Sapphire -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card border-0 shadow-sm h-100" data-aos="fade-up" data-aos-delay="200">
+                            <a href="img/mbdh-t-sp.jpg" data-lightbox="floorplans"
+                                data-title="Mặt bằng tòa The Sapphire">
+                                <img src="img/mbdh-t-sp.jpg" class="card-img-top" alt="The Sapphire" loading="lazy" />
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title">Tòa The Sapphire</h5>
+                                <p class="card-text">
+                                    Căn hộ penthouse và duplex với không gian sống đẳng cấp nhất
+                                </p>
+
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Diện tích:</strong></td>
+                                                <td class="text-end">80m² - 150m²</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Phòng ngủ:</strong></td>
+                                                <td class="text-end">3 - 4 phòng</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>View chính:</strong></td>
+                                                <td class="text-end">Toàn cảnh 360°</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Hướng:</strong></td>
+                                                <td class="text-end">Đông Nam & Tây Bắc</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-primary-custom">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floor Plan Types -->
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <div class="content-box" data-aos="fade-up">
+                            <h3 class="mb-4">Phân Loại Căn Hộ</h3>
+
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th scope="col">Loại căn hộ</th>
+                                            <th scope="col">Diện tích</th>
+                                            <th scope="col">Số phòng ngủ</th>
+                                            <th scope="col">Hướng view</th>
+                                            <th scope="col">Đặc điểm nổi bật</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Studio</strong></td>
+                                            <td>40 - 50m²</td>
+                                            <td>1</td>
+                                            <td>Biển / Thành phố</td>
+                                            <td>Thiết kế thông minh, phù hợp đầu tư cho thuê</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>1 Phòng ngủ</strong></td>
+                                            <td>50 - 60m²</td>
+                                            <td>1</td>
+                                            <td>Biển / Sông</td>
+                                            <td>Ban công rộng, view đẹp</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>2 Phòng ngủ</strong></td>
+                                            <td>65 - 85m²</td>
+                                            <td>2</td>
+                                            <td>Biển / Toàn cảnh</td>
+                                            <td>Phòng khách rộng, 2 WC</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>3 Phòng ngủ</strong></td>
+                                            <td>90 - 120m²</td>
+                                            <td>3</td>
+                                            <td>Toàn cảnh 360°</td>
+                                            <td>Phòng master có view đẹp, phòng làm việc</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Penthouse</strong></td>
+                                            <td>130 - 200m²</td>
+                                            <td>3 - 4</td>
+                                            <td>View biển toàn cảnh</td>
+                                            <td>Hồ bơi riêng, sân vườn, không gian thượng lưu</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-5">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h2 class="section-title">Bảng Giá & Chính Sách</h2>
+                        <p class="text-muted">
+                            Chính sách bán hàng ưu đãi, hỗ trợ tài chính linh hoạt, cam kết
+                            giá tốt nhất thị trường
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Studio & 1 Bedroom -->
+                    <div class="col-lg-4">
+                        <div class="pricing-card h-100" data-aos="flip-left">
+                            <div class="pricing-header">
+                                <h4 class="text-white">Căn Studio & 1PN</h4>
+                                <div class="price mt-3">2.8 - 3.5 tỷ</div>
+                                <p class="text-white-50 mb-0">Từ 40 - 60m²</p>
+                            </div>
+                            <div class="pricing-features">
+                                <ul class="list-unstyled mb-4">
+                                    <li class="py-2 border-bottom">
+                                        <i class="fas fa-check text-success me-2"></i> View biển /
+                                        thành phố
+                                    </li>
+                                    <li class="py-2 border-bottom">
+                                        <i class="fas fa-check text-success me-2"></i> Nội thất cơ
+                                        bản
+                                    </li>
+                                    <li class="py-2 border-bottom">
+                                        <i class="fas fa-check text-success me-2"></i> Ban công
+                                        rộng
+                                    </li>
+                                    <li class="py-2 border-bottom">
+                                        <i class="fas fa-check text-success me-2"></i> Bếp đầy đủ
+                                        thiết bị
+                                    </li>
+                                    <li class="py-2">
+                                        <i class="fas fa-check text-success me-2"></i> Hỗ trợ vay
+                                        ngân hàng 70%
+                                    </li>
+                                </ul>
+                                <div class="text-center">
+                                    <p class="text-muted"><small>Giá đã bao gồm VAT</small></p>
+                                </div>
+                            </div>
+                            <div class="pricing-cta p-4 pt-0">
+                                <a href="#contact" class="btn btn-primary-custom w-100">Đăng ký nhận báo giá</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2 Bedrooms -->
+                    <div class="col-lg-4">
+                        <div class="pricing-card featured h-100" data-aos="flip-left" data-aos-delay="100">
+                            <div class="pricing-header">
+                                <h4 class="text-white">Căn 2 Phòng Ngủ</h4>
+                                <div class="price mt-3">4.2 - 5.5 tỷ</div>
+                                <p class="text-white-50 mb-0">Từ 65 - 85m²</p>
+                            </div>
+                            <div class="pricing-features">
+                                <ul class="list-unstyled mb-4">
+                                    <li class="py-2 border-bottom">
+                                        <i class="fas fa-check text-success me-2"></i> View biển
+                                        toàn cảnh
+                                    </li>
+                                    <li class="py-2 border-bottom">
+                                        <i class="fas fa-check text-success me-2"></i> Nội thất
+                                        cao cấp
+                                    </li>
+                                    <li class="py-2 border-bottom">
+                                        <i class="fas fa-check text-success me-2"></i> 2 phòng tắm
+                                        riêng
+                                    </li>
+                                    <li class="py-2 border-bottom">
+                                        <i class="fas fa-check text-success me-2"></i> Phòng khách
+                                        rộng
+                                    </li>
+                                    <li class="py-2">
+                                        <i class="fas fa-check text-success me-2"></i> Hỗ trợ vay
+                                        ngân hàng 70%
+                                    </li>
+                                </ul>
+                                <div class="text-center">
+                                    <p class="text-success">
+                                        <small>Ưu đãi đặc biệt trong tháng này</small>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="pricing-cta p-4 pt-0">
+                                <a href="#contact" class="btn btn-primary-custom w-100">Nhận tư vấn ưu đãi</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3 Bedrooms & Penthouse -->
+                    <div class="col-lg-4">
+                        <div class="pricing-card h-100" data-aos="flip-left" data-aos-delay="200">
+                            <div class="pricing-header">
+                                <h4 class="text-white">Căn 3PN & Penthouse</h4>
+                                <div class="price mt-3">6.8 - 12 tỷ</div>
+                                <p class="text-white-50 mb-0">Từ 90 - 200m²</p>
+                            </div>
+                            <div class="pricing-features">
+                                <ul class="list-unstyled mb-4">
+                                    <li class="py-2 border-bottom">
+                                        <i class="fas fa-check text-success me-2"></i> View toàn
+                                        cảnh 360°
+                                    </li>
+                                    <li class="py-2 border-bottom">
+                                        <i class="fas fa-check text-success me-2"></i> Nội thất
+                                        đẳng cấp
+                                    </li>
+                                    <li class="py-2 border-bottom">
+                                        <i class="fas fa-check text-success me-2"></i> Hồ bơi
+                                        riêng (PH)
+                                    </li>
+                                    <li class="py-2 border-bottom">
+                                        <i class="fas fa-check text-success me-2"></i> Thiết kế
+                                        riêng theo yêu cầu
+                                    </li>
+                                    <li class="py-2">
+                                        <i class="fas fa-check text-success me-2"></i> Hỗ trợ vay
+                                        ngân hàng 70%
+                                    </li>
+                                </ul>
+                                <div class="text-center">
+                                    <p class="text-muted">
+                                        <small>Thiết kế custom theo yêu cầu</small>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="pricing-cta p-4 pt-0">
+                                <a href="#contact" class="btn btn-primary-custom w-100">Liên hệ tư vấn riêng</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Policy -->
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <div class="content-box" data-aos="fade-up">
+                            <h3 class="mb-4">Chính Sách Thanh Toán</h3>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="card border-0 bg-light h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-primary-custom">
+                                                <i class="fas fa-hand-holding-usd me-2"></i> Hỗ trợ
+                                                tài chính
+                                            </h5>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2">
+                                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                                    Hỗ trợ vay ngân hàng lên đến 70% giá trị căn hộ
+                                                </li>
+                                                <li class="mb-2">
+                                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                                    Lãi suất ưu đãi 0% trong 24 tháng đầu
+                                                </li>
+                                                <li class="mb-2">
+                                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                                    Thời gian vay lên đến 25 năm
+                                                </li>
+                                                <li>
+                                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                                    Hỗ trợ thủ tục vay nhanh chóng
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-4">
+                                    <div class="card border-0 bg-light h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-primary-custom">
+                                                <i class="fas fa-gift me-2"></i> Ưu đãi đặc biệt
+                                            </h5>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2">
+                                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                                    Giữ chỗ chỉ với 100 triệu đồng
+                                                </li>
+                                                <li class="mb-2">
+                                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                                    Tặng nội thất cao cấp trị giá 200 triệu
+                                                </li>
+                                                <li class="mb-2">
+                                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                                    Miễn phí quản lý 2 năm đầu
+                                                </li>
+                                                <li>
+                                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                                    Chiết khấu trực tiếp lên đến 8%
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="alert alert-primary border-primary-custom bg-transparent mt-3" role="alert">
+                                <h5><i class="fas fa-clock me-2"></i> Ưu đãi có thời hạn</h5>
+                                <p class="mb-0">
+                                    Các chính sách ưu đãi chỉ áp dụng cho khách hàng đặt mua
+                                    trong tháng này. Liên hệ ngay để được tư vấn chi tiết và giữ
+                                    ưu đãi tốt nhất.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="news" class="py-5 bg-light-custom">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h2 class="section-title">Tin Tức & Sự Kiện</h2>
+                        <p class="text-muted">
+                            Cập nhật những thông tin mới nhất về tiến độ thi công, sự kiện
+                            và chính sách từ chủ đầu tư
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- News 1 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card border-0 shadow-sm h-100" data-aos="fade-up">
+                            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top" alt="News 1" loading="lazy" />
+                            <div class="card-body">
+                                <span class="badge bg-primary-custom mb-2">Tin tức</span>
+                                <h5 class="card-title">
+                                    Lễ động thổ dự án Newtown Diamond Đà Nẵng
+                                </h5>
+                                <p class="card-text">
+                                    Sáng ngày 15/10/2023, chủ đầu tư Công ty TNHH Newtown đã tổ
+                                    chức lễ động thổ chính thức dự án Newtown Diamond Đà Nẵng.
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted"><i class="far fa-calendar me-1"></i> 15/10/2023</small>
+                                    <a href="#" class="btn btn-sm btn-outline-primary-custom">Đọc thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News 2 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card border-0 shadow-sm h-100" data-aos="fade-up" data-aos-delay="100">
+                            <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top" alt="News 2" loading="lazy" />
+                            <div class="card-body">
+                                <span class="badge bg-success mb-2">Tiến độ</span>
+                                <h5 class="card-title">
+                                    Công trường Newtown Diamond hoàn thành 30% khối lượng
+                                </h5>
+                                <p class="card-text">
+                                    Sau 6 tháng thi công, dự án Newtown Diamond đã hoàn thành
+                                    30% khối lượng công trình, đúng tiến độ cam kết.
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted"><i class="far fa-calendar me-1"></i> 20/11/2023</small>
+                                    <a href="#" class="btn btn-sm btn-outline-primary-custom">Đọc thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News 3 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card border-0 shadow-sm h-100" data-aos="fade-up" data-aos-delay="200">
+                            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top" alt="News 3" loading="lazy" />
+                            <div class="card-body">
+                                <span class="badge bg-warning mb-2">Sự kiện</span>
+                                <h5 class="card-title">
+                                    Triển lãm mô hình dự án tại Hà Nội & TP.HCM
+                                </h5>
+                                <p class="card-text">
+                                    Chủ đầu tư tổ chức triển lãm mô hình dự án tại Hà Nội và
+                                    TP.HCM để khách hàng tiềm năng có cái nhìn trực quan.
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted"><i class="far fa-calendar me-1"></i> 05/12/2023</small>
+                                    <a href="#" class="btn btn-sm btn-outline-primary-custom">Đọc thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5">
+                    <a href="#" class="btn btn-primary-custom">Xem tất cả tin tức</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-5">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h2 class="section-title">Liên Hệ Tư Vấn</h2>
+                        <p class="text-muted">
+                            Để lại thông tin để được tư vấn chi tiết về dự án, nhận báo giá
+                            và ưu đãi đặc biệt
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="content-box" data-aos="zoom-in">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <h4 class="mb-4">Thông tin liên hệ</h4>
+
+                                    <div class="d-flex align-items-start mb-3">
+                                        <i class="fas fa-map-marker-alt text-primary-custom fs-5 me-3 mt-1"></i>
+                                        <div>
+                                            <h6>Văn phòng</h6>
+                                            <p class="mb-0">
+                                                Tầng 2 Toà HH2 Bắc Hà P. Tố Hữu, Trung Văn, Thanh
+                                                Xuân, Hà Nội
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex align-items-start mb-3">
+                                        <i class="fas fa-phone-alt text-primary-custom fs-5 me-3 mt-1"></i>
+                                        <div>
+                                            <h6>Hotline</h6>
+                                            <p class="mb-0">0345707888</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex align-items-start mb-3">
+                                        <i class="fas fa-envelope text-primary-custom fs-5 me-3 mt-1"></i>
+                                        <div>
+                                            <h6>Email</h6>
+                                            <p class="mb-0">nhatnt.hopnhatland@gmail.com</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex align-items-start mb-3">
+                                        <i class="fas fa-clock text-primary-custom fs-5 me-3 mt-1"></i>
+                                        <div>
+                                            <h6>Thời gian làm việc</h6>
+                                            <p class="mb-0">Thứ 2 - Thứ 6: 8:30 - 18:00</p>
+                                            <p class="mb-0">Thứ 7: 8:30 - 12:30</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4">
+                                        <h6>Theo dõi chúng tôi</h6>
+                                        <div class="social-icons mt-2">
+                                            <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
+                                            <a href="#" class="me-2"><i class="fab fa-youtube"></i></a>
+                                            <a href="#" class="me-2"><i class="fab fa-tiktok"></i></a>
+                                            <a href="#" class="me-2"><i class="fab fa-zalo"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h4 class="mb-4">Đăng ký nhận tư vấn</h4>
+
+                                    <form id="contactForm">
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" placeholder="Họ và tên" required />
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <input type="tel" class="form-control" placeholder="Số điện thoại"
+                                                required />
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <input type="email" class="form-control" placeholder="Email" />
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <select class="form-select" required>
+                                                <option value="" selected disabled>
+                                                    Loại căn hộ quan tâm
+                                                </option>
+                                                <option value="studio">Studio & 1 Phòng ngủ</option>
+                                                <option value="2pn">2 Phòng ngủ</option>
+                                                <option value="3pn">3 Phòng ngủ & Penthouse</option>
+                                                <option value="all">Tất cả các loại</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <textarea class="form-control" rows="3"
+                                                placeholder="Nội dung cần tư vấn"></textarea>
+                                        </div>
+
+                                        <div class="d-grid">
+                                            <button type="submit" class="btn btn-primary-custom">
+                                                <i class="fas fa-paper-plane me-2"></i>Gửi thông tin
+                                            </button>
+                                        </div>
+
+                                        <div class="form-text mt-3">
+                                            Bằng việc gửi thông tin, bạn đồng ý với
+                                            <a href="#" class="text-decoration-underline">Chính sách bảo mật</a> của
+                                            chúng tôi
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <img src="https://newtowndiamonds.com/wp-content/uploads/2024/07/logo.jpg" alt="Newtown Diamond"
+                        class="mb-3" style="height: 60px" loading="lazy" />
+                    <p>
+                        Newtown Diamond Đà Nẵng - Biểu tượng kiến trúc mới của trục đại lộ
+                        kim cương tại tâm điểm Đà Nẵng với sức sống trẻ trung hiện đại.
+                    </p>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="text-white mb-3">Liên kết nhanh</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home">Trang chủ</a></li>
+                        <li class="mb-2"><a href="#location">Vị trí</a></li>
+                        <li class="mb-2"><a href="#amenities">Tiện ích</a></li>
+                        <li class="mb-2"><a href="#floorplans">Mặt bằng</a></li>
+                        <li class="mb-2"><a href="#pricing">Bảng giá</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-white mb-3">Thông tin dự án</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="fas fa-map-marker-alt me-2"></i> Đường Trường Sa, Hòa
+                            Hải, Ngũ Hành Sơn, Đà Nẵng
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-phone-alt me-2"></i> 0345707888
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-envelope me-2"></i>
+                            nhatnt.hopnhatland@gmail.com
+                        </li>
+                        <li><i class="fas fa-clock me-2"></i> 8:30 - 18:00 hàng ngày</li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 mb-4">
+                    <h5 class="text-white mb-3">Đăng ký nhận tin</h5>
+                    <p class="text-white-50">
+                        Nhận thông tin mới nhất về tiến độ dự án và các chương trình ưu
+                        đãi.
+                    </p>
+
+                    <form class="mb-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Email của bạn" />
+                            <button class="btn btn-primary-custom" type="button">
+                                Gửi
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-zalo"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4" style="border-color: rgba(255, 255, 255, 0.1)" />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 HỢP NHẤT LAND. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">
+                        Chủ đầu tư: <strong>Công ty TNHH Newtown</strong>
+                    </p>
+                    <p class="mb-0">
+                        Đại lý bán hàng: <strong>Công ty TNHH Hợp Nhất Land</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <!-- Main JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            disable: window.innerWidth < 768 // Disable on mobile
+        });
+
+        // Navbar scroll effect
+        window.addEventListener("scroll", function () {
+            const navbar = document.querySelector(".navbar");
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute("href");
+                if (targetId === "#") return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: "smooth",
+                    });
+
+                    // Update active nav link
+                    document.querySelectorAll(".nav-link").forEach((link) => {
+                        link.classList.remove("active");
+                    });
+                    this.classList.add("active");
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTopButton = document.querySelector(".back-to-top");
+
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add("active");
+            } else {
+                backToTopButton.classList.remove("active");
+            }
+        });
+
+        backToTopButton.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
+        });
+
+        // Form submission
+        const contactForm = document.getElementById("contactForm");
+        if (contactForm) {
+            contactForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                // Simple validation
+                const name = this.querySelector('input[type="text"]').value;
+                const phone = this.querySelector('input[type="tel"]').value;
+
+                if (!name || !phone) {
+                    alert("Vui lòng điền đầy đủ họ tên và số điện thoại!");
+                    return;
+                }
+
+                // Show success message
+                alert("Cảm ơn bạn đã đăng ký! Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.");
+                this.reset();
+            });
+        }
+
+        // Lightbox configuration
+        lightbox.option({
+            resizeDuration: 200,
+            wrapAround: true,
+            albumLabel: "Hình %1 / %2",
+        });
+
+        // Lazy loading images
+        document.addEventListener("DOMContentLoaded", function () {
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src || img.src;
+                            img.classList.add('loaded');
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(img => imageObserver.observe(img));
+            }
+        });
+
+        // Video lazy loading
+        document.addEventListener("DOMContentLoaded", function () {
+            const videoIframe = document.querySelector('.video-container iframe');
+            if (videoIframe) {
+                // Set a placeholder src initially
+                const originalSrc = videoIframe.src;
+                videoIframe.src = '';
+
+                const videoObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            videoIframe.src = originalSrc;
+                            videoObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { rootMargin: '50px' });
+
+                videoObserver.observe(videoIframe);
+            }
+        });
+
+        // Optimize scroll performance
+        let scrollTimeout;
+        window.addEventListener('scroll', function () {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(function () {
+                // Code to run after scrolling stops
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>
