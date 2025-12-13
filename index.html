@@ -79,117 +79,18 @@
     }
 
     /* Hero Section - ĐÃ SỬA */
-    /* Hero Section - ĐÃ SỬA - TỐI ƯU MOBILE */
     .hero-section {
       position: relative;
       min-height: 100vh;
       background:
-        linear-gradient(rgba(0, 23, 45, 0.85), rgba(0, 23, 45, 0.7)),
+        linear-gradient(rgba(0, 23, 45, 0), rgba(0, 23, 45, 0)),
         url('./img/phoi-canh.jpg');
-
-      /* Mobile-first: Không fixed background trên mobile */
-      background-attachment: scroll;
+      background-attachment: fixed;
       background-position: center;
       background-size: cover;
-      background-repeat: no-repeat;
-
       display: flex;
       align-items: center;
       overflow: hidden;
-
-      /* Thêm backup color */
-      background-color: #00172d;
-
-      /* Tối ưu hiệu suất */
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-    }
-
-    /* Desktop: Chỉ fixed background trên màn hình lớn */
-    @media (min-width: 768px) and (orientation: landscape) {
-      .hero-section {
-        background-attachment: fixed;
-      }
-    }
-
-    /* Optimize cho mobile portrait */
-    @media (max-width: 767px) and (orientation: portrait) {
-      .hero-section {
-        /* Thay đổi gradient cho mobile */
-        background:
-          linear-gradient(rgba(0, 23, 45, 0.9), rgba(0, 23, 45, 0.8)),
-          url('./img/phoi-canh.jpg') center/cover no-repeat scroll;
-
-        /* Tăng opacity để chữ dễ đọc trên mobile */
-        min-height: 90vh;
-        background-size: cover;
-        background-position: top center;
-      }
-    }
-
-    /* Optimize cho mobile landscape */
-    @media (max-width: 767px) and (orientation: landscape) {
-      .hero-section {
-        min-height: 70vh;
-        background-size: cover;
-        background-position: center 30%;
-      }
-    }
-
-    /* High-DPI screens */
-    @media (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi) {
-      .hero-section {
-        /* Nếu có ảnh độ phân giải cao */
-        background-image:
-          linear-gradient(rgba(0, 23, 45, 0.85), rgba(0, 23, 45, 0.7)),
-          url('./img/phoi-canh@2x.jpg');
-        /* Thay bằng ảnh 2x nếu có */
-      }
-    }
-
-    /* Fallback cho trình duyệt không hỗ trợ background-attachment: fixed */
-    @supports not (background-attachment: fixed) {
-      .hero-section {
-        position: relative;
-      }
-
-      .hero-section::before {
-        content: '';
-        position: fixed;
-        /* Dùng pseudo-element cho fixed effect */
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background:
-          linear-gradient(rgba(0, 23, 45, 0.85), rgba(0, 23, 45, 0.7)),
-          url('./img/phoi-canh.jpg') center/cover no-repeat;
-        z-index: -1;
-      }
-    }
-
-    /* Optimize hiệu suất loading */
-    .hero-section {
-      /* Prevent repaints */
-      will-change: transform;
-
-      /* Giảm độ phức tạp của gradient trên mobile */
-      @media (max-width: 767px) {
-        background-image:
-          linear-gradient(rgba(0, 23, 45, 0.92), rgba(0, 23, 45, 0.85)),
-          url('./img/phoi-canh.jpg');
-      }
-    }
-
-    /* Giảm quality ảnh trên slow connections */
-    @media (max-width: 767px) and (max-device-width: 1024px) {
-      .hero-section {
-        background-image:
-          linear-gradient(rgba(0, 23, 45, 0.95), rgba(0, 23, 45, 0.9)),
-          url('./img/phoi-canh-small.jpg');
-        /* Thay bằng ảnh nén nhỏ hơn */
-      }
     }
 
     .hero-section::before {
@@ -219,11 +120,11 @@
     /* Luxury gold text effect - ĐÃ SỬA */
     .gold-text {
       background: linear-gradient(135deg,
-          #e9d772 0%,
-          #dbbe18 25%,
-          #e4c219 50%,
-          #FFD700 75%,
-          #a8910d 100%);
+          #ffffff 100%,
+          #ffffff 100%,
+          #ffffff 100%,
+          #ffffff 100%,
+          #ffffff 100%);
       background-size: 200% auto;
       background-clip: text;
       -webkit-background-clip: text;
