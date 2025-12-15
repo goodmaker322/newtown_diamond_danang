@@ -1077,6 +1077,57 @@
         transform: none !important;
         box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3) !important;
       }
+
+      /* CSS cho phiên bản đơn giản */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .partners-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.partner-card {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.partner-card:hover {
+  background: rgba(255, 215, 0, 0.1);
+  border-color: rgba(255, 215, 0, 0.3);
+  transform: translateY(-3px);
+}
+
+.partner-logo-container {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.partner-logo-container img {
+  max-height: 100%;
+  filter: grayscale(100%);
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.partner-card:hover .partner-logo-container img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.partner-name span {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
     </style>
   </head>
 
@@ -1211,7 +1262,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="#home">Trang chủ</a>
+              <a class="nav-link active" href="#home">Tổng quan</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#location">Vị trí</a>
@@ -1230,6 +1281,16 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#contact">Liên hệ</a>
+            </li>
+            <li class="nav-item">
+              <a
+               class="nav-link"
+              href="https://www.brggroup.vn/hotel-and-resort-ca13"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Chủ đầu tư
+            </a>
             </li>
           </ul>
         </div>
@@ -2751,7 +2812,8 @@
     <footer class="footer">
       <div class="container">
         <div class="row">
-          <div class="col-lg-4 mb-4">
+          <!-- Cột 1: Logo và mô tả -->
+          <div class="col-lg-2 col-md-4 mb-4">
             <a href="#home">
               <img
                 src="https://newtowndiamonds.com/wp-content/uploads/2024/07/logo.jpg"
@@ -2761,32 +2823,117 @@
                 loading="lazy"
               />
             </a>
-            <p>
-              Newtown Diamond Đà Nẵng - Biểu tượng kiến trúc mới của trục đại lộ
-              kim cương tại tâm điểm Đà Nẵng với sức sống trẻ trung hiện đại.
+            <p class="small">
+              Công ty TNHH Phát Triển New Town, một thành viên thuộc BRG Group
             </p>
+            <a
+              href="https://vi.wikipedia.org/wiki/T%E1%BA%ADp_%C4%91o%C3%A0n_BRG"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Xem chi tiết
+            </a>
           </div>
 
-          <div class="col-lg-5 col-md-6 mb-4">
-            <h5 class="text-white mb-3">Cam kết bán hàng</h5>
+          <!-- Cột 2: Thông tin liên hệ -->
+          <div class="col-lg-2 col-md-4 mb-4">
+            <h5 class="text-white mb-3">Liên hệ</h5>
             <ul class="list-unstyled">
               <li class="mb-2">
-                Thông tin nhanh chóng và chính xác từ chủ đầu tư
+                <i class="fas fa-map-marker-alt me-2"></i>Công ty TNHH Hợp Nhất
+                Land
               </li>
-              <li class="mb-2">Chọn căn đẹp giá tốt nhất cho quý khách</li>
-              <li class="mb-2">Tư vấn minh bạch,rõ ràng</li>
-              <li class="mb-2">Tham quan dự án</li>
+              <a
+                href="http://hopnhatland.vn/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Xem chi tiết
+              </a>
               <li class="mb-2">
-                Hỗ trợ khách hàng lâu dài, khách hàng không mất thêm chi phí gì
-                cả
+                <i class="fas fa-phone me-2"></i> Hotline<br />0914 805 823
+                <br />
+                0902 240 790
               </li>
-              <li class="mb-2">Hỗ trợ khách hàng đến khi nhận sổ</li>
+
+              <li class="mb-2">
+                <i class="fas fa-clock me-2"></i> Thời gian<br />
+                8:00 - 17:30
+              </li>
             </ul>
           </div>
 
-          <div class="col-lg-3 mb-4">
+          <!-- Cột 3: Cam kết bán hàng (phần 1) -->
+          <div class="col-lg-2 col-md-4 mb-4">
+            <h5 class="text-white mb-3">Cam kết</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">Thông tin chính xác</li>
+              <li class="mb-2">Chọn căn đẹp nhất</li>
+              <li class="mb-2">Tư vấn minh bạch</li>
+              <li class="mb-2">Tham quan dự án</li>
+              <li class="mb-2">Hỗ trợ lâu dài</li>
+              <li class="mb-2">Không phí phát sinh</li>
+              <li class="mb-2">Hỗ trợ đến khi nhận sổ</li>
+              <li class="mb-2">Bảo hành chất lượng</li>
+            </ul>
+            </ul>
+          </div>
+
+          <!-- Cột 4: Cam kết bán hàng (phần 2) -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <h5 class="text-white mb-3">Đối tác tài chính</h5>
+            <div class="partners-grid">
+              <div class="partner-card text-center">
+                <div class="partner-logo-container mb-2">
+                  <img 
+                    src="./img/donga.png" 
+                    alt="Đông Á Bank"
+                    class="img-fluid"
+                    style="height: 40px;"
+                    loading="lazy"
+                  >
+                </div>
+                <div class="partner-name">
+                  <span class="text-white">Đông Á Bank</span>
+                </div>
+              </div>
+              
+              <div class="partner-card text-center">
+                <div class="partner-logo-container mb-2">
+                  <img 
+                    src="./img/tech.png" 
+                    alt="Techcombank"
+                    class="img-fluid"
+                    style="height: 40px;"
+                    loading="lazy"
+                  >
+                </div>
+                <div class="partner-name">
+                  <span class="text-white">Techcombank</span>
+                </div>
+              </div>
+              
+              <div class="partner-card text-center">
+                <div class="partner-logo-container mb-2">
+                  <img 
+                    src="./img/vcb.jpg" 
+                    alt="Vietcombank"
+                    class="img-fluid"
+                    style="height: 40px;"
+                    loading="lazy"
+                  >
+                </div>
+                <div class="partner-name">
+                  <span class="text-white">Vietcombank</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cột 5: Đăng ký nhận tin -->
+          <div class="col-lg-3 col-md-6 mb-4">
             <h5 class="text-white mb-3">Đăng ký nhận tin</h5>
-            <p class="text-white-50">
+            <p class="text-white-50 small mb-3">
               Nhận thông tin mới nhất về tiến độ dự án và các chương trình ưu
               đãi.
             </p>
@@ -2810,28 +2957,29 @@
                 </button>
               </div>
             </form>
-
-            <div class="social-icons">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-youtube"></i></a>
-              <a href="#"><i class="fab fa-tiktok"></i></a>
-              <a href="#"><i class="fab fa-zalo"></i></a>
-            </div>
           </div>
         </div>
 
         <hr class="my-4" style="border-color: rgba(255, 255, 255, 0.1)" />
 
         <div class="row">
-          <div class="col-md-6">
-            <p class="mb-0">&copy; 2024 HỢP NHẤT LAND. All rights reserved.</p>
+          <div class="col-md-4">
+            <p class="mb-0">&copy; 2025 HỢP NHẤT LAND. All rights reserved.</p>
           </div>
-          <div class="col-md-6 text-md-end">
+          <div class="col-md-4 text-center">
+            <p class="mb-0">
+              
+            </p>
+          </div>
+          <div class="col-md-4 text-md-end">
             <p class="mb-0">
               Chủ đầu tư: <strong>Công ty TNHH Newtown</strong>
             </p>
             <p class="mb-0">
-              Đại lý bán hàng số 1: <strong>Công ty TNHH Hợp Nhất Land</strong>
+              Đại lý bán hàng: <strong>Công ty TNHH Hợp Nhất Land</strong>
+            </p>
+            <p class="mb-0">
+              Chuyên viên tư vấn: <strong>Trần Đam</strong> <br> <strong>Lê Dũng</strong>
             </p>
           </div>
         </div>
