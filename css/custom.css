@@ -1279,3 +1279,438 @@ a[data-lightbox] {
         background-position: center;
     }
 }
+
+.lead-popup-form input[type="hidden"] {
+    display: none !important;
+}
+
+/* ================= HERO H1 MOBILE FIX ================= */
+
+/* Desktop & tablet lớn: 1 dòng */
+.hero-title {
+    white-space: nowrap;
+}
+
+/* Mobile nhỏ: chia dòng có kiểm soát */
+@media (max-width: 576px) {
+    .hero-title {
+        white-space: normal;
+        text-align: center;
+        line-height: 1.25;
+    }
+
+    /* Ẩn text gốc */
+    .hero-title {
+        color: transparent;
+    }
+
+    /* Dòng 1 */
+    .hero-title::before {
+        content: "Newtown Diamond";
+        display: block;
+        color: #ffffff;
+    }
+
+    /* Dòng 2 */
+    .hero-title::after {
+        content: "Đà Nẵng";
+        display: block;
+        color: #ffffff;
+        margin-top: 0.2rem;
+    }
+}
+
+.hero-title {
+    aria-label: "Newtown Diamond Đà Nẵng";
+}
+
+.hero-title {
+    text-align: center;
+    line-height: 1.2;
+}
+
+.title-main,
+.title-sub {
+    display: inline;
+}
+
+/* Desktop: 1 dòng */
+@media (min-width: 577px) {
+    .title-main::after {
+        content: " ";
+    }
+}
+
+/* Mobile: xuống dòng có kiểm soát */
+@media (max-width: 576px) {
+
+    .title-main,
+    .title-sub {
+        display: block;
+    }
+}
+
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.hero-section video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, .7),
+            rgba(0, 0, 0, .4));
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== FOOTER SUBSCRIBE FORM ===== */
+#footerForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#footerForm input {
+    width: 100%;
+    height: 44px;
+    padding: 0 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-size: 14px;
+}
+
+#footerForm input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#footerForm input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.25);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+#footerForm button {
+    height: 44px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #ffd700, #ff9900);
+    color: #000;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+#footerForm button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(255, 215, 0, 0.35);
+}
+
+/* Mobile tối ưu */
+@media (max-width: 576px) {
+
+    #footerForm input,
+    #footerForm button {
+        height: 42px;
+        font-size: 14px;
+    }
+}
+
+/* =====================================================
+   HERO SECTION – RESPONSIVE OVERRIDE (KHÔNG PHÁ CSS CŨ)
+   Chỉ tác động #hero / .hero-section
+===================================================== */
+
+/* ---------- Base fix cho mọi thiết bị ---------- */
+#hero.hero-section {
+    display: flex;
+    align-items: center;
+}
+
+#hero .container {
+    position: relative;
+    z-index: 3;
+}
+
+/* ---------- HERO TITLE ---------- */
+#hero .hero-title {
+    white-space: normal;
+    /* bỏ ép 1 dòng cứng */
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* Desktop lớn giữ 1 dòng */
+@media (min-width: 992px) {
+
+    #hero .title-main,
+    #hero .title-sub {
+        display: inline;
+    }
+}
+
+/* ---------- Mobile nhỏ (≤576px) ---------- */
+@media (max-width: 576px) {
+
+    #hero.hero-section {
+        min-height: 100vh;
+        padding: 3rem 1rem 2.5rem;
+    }
+
+    /* Title chia dòng gọn */
+    #hero .hero-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    #hero .title-main,
+    #hero .title-sub {
+        display: block;
+    }
+
+    /* Subtitle */
+    #hero .staggered-subtitle {
+        gap: .6rem;
+        margin-bottom: 1.8rem;
+        align-items: center;
+    }
+
+    #hero .staggered-subtitle h1 {
+        font-size: 1.4rem;
+        padding: .6rem .8rem !important;
+        text-align: center !important;
+        align-self: center !important;
+        border: none !important;
+        animation: none !important;
+    }
+
+    /* Tắt glow dư trên mobile */
+    #hero .staggered-subtitle h1::before {
+        display: none !important;
+    }
+
+    /* Gold text gọn */
+    #hero .gold-text strong {
+        padding: .4rem .6rem;
+        line-height: 1.25;
+        text-shadow:
+            0 2px 6px rgba(0, 0, 0, .5),
+            0 0 14px rgba(255, 215, 0, .35);
+    }
+
+    /* Button */
+    #hero .btn-primary-custom {
+        width: 100%;
+        max-width: 280px;
+        padding: .9rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* ---------- Tablet (577px – 991px) ---------- */
+@media (min-width: 577px) and (max-width: 991px) {
+
+    #hero.hero-section {
+        min-height: 90vh;
+        padding: 4rem 2rem;
+    }
+
+    #hero .hero-title {
+        font-size: 2.8rem;
+    }
+
+    #hero .staggered-subtitle h1 {
+        font-size: 2rem;
+        padding: .9rem 1.6rem;
+    }
+}
+
+/* ---------- Desktop rất lớn ---------- */
+@media (min-width: 1400px) {
+    #hero .hero-title {
+        font-size: 4.2rem;
+    }
+
+    #hero .staggered-subtitle h1 {
+        font-size: 3rem;
+    }
+}
+
+/* ---------- Safety: không tràn chữ ---------- */
+#hero .staggered-subtitle h1,
+#hero .hero-title {
+    max-width: 100%;
+    word-break: break-word;
+}
+
+
+/* =====================================================
+   ROYAL BLACK & GOLD – CLASSIC ORNAMENT POPUP
+===================================================== */
+
+/* ===== NỀN TOÀN BỘ POPUP ===== */
+#leadPopup.lead-popup {
+    background:
+        /* SVG hoa văn cổ điển */
+        url("data:image/svg+xml,%3Csvg width='300' height='300' viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-opacity='0.18' stroke-width='1'%3E%3Cpath d='M150 20c20 40 60 40 80 60-20 20-20 60-40 80-20-20-60-20-80-40 20-20 20-60 40-80z'/%3E%3Cpath d='M150 280c-20-40-60-40-80-60 20-20 20-60 40-80 20 20 60 20 80 40-20 20-20 60-40 80z'/%3E%3Cpath d='M20 150c40-20 40-60 60-80 20 20 60 20 80 40-20 20-20 60-40 80-20-20-60-20-80-40z'/%3E%3Cpath d='M280 150c-40 20-40 60-60 80-20-20-60-20-80-40 20-20 20-60 40-80 20 20 60 20 80 40z'/%3E%3C/g%3E%3C/svg%3E"),
+        radial-gradient(circle at top,
+            rgba(212, 175, 55, 0.25),
+            rgba(0, 0, 0, 0.98) 55%),
+        #000;
+    background-size: 300px 300px, cover;
+    background-blend-mode: soft-light;
+    backdrop-filter: blur(6px);
+}
+
+/* ===== KHUNG POPUP ===== */
+#leadPopup .lead-popup-content {
+    background:
+        linear-gradient(180deg,
+            #58553313,
+            #bbbc4e81);
+    border-radius: 26px;
+    border: 1px solid rgba(212, 206, 39, 0.504);
+    box-shadow:
+        0 40px 120px rgba(146, 144, 144, 0.49),
+        0 0 60px rgba(212, 175, 55, .15),
+        inset 0 0 120px rgba(212, 175, 55, .05);
+    position: relative;
+    overflow: hidden;
+}
+
+/* ===== VIỀN VÀNG TRANG TRÍ ===== */
+#leadPopup .lead-popup-content::before {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, .35);
+    pointer-events: none;
+}
+
+/* ===== HEADER ===== */
+#leadPopup .lead-popup-header h3 {
+    color: #ffd700;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow:
+        0 2px 12px rgba(238, 238, 237, 0.705),
+        0 0 40px rgba(226, 225, 221, 0.664);
+}
+
+#leadPopup .lead-popup-header p {
+    color: rgba(255, 255, 255, .75);
+}
+
+/* ===== INPUT / SELECT ===== */
+#leadPopup .form-control,
+#leadPopup .form-select,
+#leadPopup textarea {
+    background: rgba(230, 230, 230, 0.473);
+    border: 1px solid rgba(197, 160, 40, 0.473);
+    color: #424242;
+}
+
+#leadPopup .form-control:focus,
+#leadPopup .form-select:focus,
+#leadPopup textarea:focus {
+    border-color: #ffd700;
+    box-shadow:
+        0 0 0 2px rgba(212, 175, 55, .35),
+        0 0 30px rgba(212, 175, 55, .25);
+}
+
+/* ===== BUTTON ===== */
+#leadPopup .btn-submit {
+    background:
+        linear-gradient(135deg,
+            #fff3b0,
+            #d4af37,
+            #a67c00);
+    color: #64646494;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow:
+        0 12px 35px rgba(212, 175, 55, .7),
+        0 0 30px rgba(255, 215, 0, .6);
+}
+
+#leadPopup .btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 18px 50px rgba(212, 175, 55, .9),
+        0 0 45px rgba(255, 215, 0, .8);
+}
+
+/* ===== SUCCESS ===== */
+#leadPopup .lead-popup-success i {
+    color: #ffd700;
+    text-shadow:
+        0 0 40px rgba(255, 215, 0, .8);
+}
+
+/* ===== MOBILE GIẢM HOA VĂN ===== */
+@media (max-width: 576px) {
+    #leadPopup.lead-popup {
+        background:
+            radial-gradient(circle at top,
+                rgba(212, 175, 55, 0.22),
+                #97959539 60%),
+            #7a797979;
+    }
+}
+
+/* ===== PLACEHOLDER LUXURY OVERRIDE ===== */
+
+/* Chuẩn chung */
+#leadPopup ::placeholder {
+  color: rgba(255, 245, 200, 0.75); /* vàng trắng luxury */
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+/* Chrome / Edge / Safari */
+#leadPopup ::-webkit-input-placeholder {
+  color: rgba(255, 245, 200, 0.75);
+}
+
+/* Firefox */
+#leadPopup ::-moz-placeholder {
+  color: rgba(255, 245, 200, 0.75);
+  opacity: 1;
+}
+
+/* IE (fallback) */
+#leadPopup :-ms-input-placeholder {
+  color: rgba(255, 245, 200, 0.75);
+}
+
+/* Khi focus – dịu hơn cho sang */
+#leadPopup input:focus::placeholder,
+#leadPopup textarea:focus::placeholder {
+  color: rgba(255, 245, 200, 0.4);
+}
+
+
